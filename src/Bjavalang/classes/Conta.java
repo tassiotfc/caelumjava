@@ -1,6 +1,6 @@
 package Bjavalang.classes;
 
-public class Conta {
+public class Conta implements Comparable<Conta>{
 	private String titular;
 	private double saldo;
 	private int numero;
@@ -30,6 +30,11 @@ public class Conta {
 		Conta outraConta = (Conta) obj;
 		return (this.numero == outraConta.numero &&
 				this.agencia.equals(outraConta.agencia));
+	}
+	
+	@Override
+	public int compareTo(Conta o) {
+		return this.titular.compareTo(o.getTitular());
 	}
 	
 	public String getTitular() {
